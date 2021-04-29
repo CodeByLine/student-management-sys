@@ -20,10 +20,10 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # See https://docs.djangoproject.com/en/3.0/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = '(l#*c#t%+ln$ofzg=-^&#-mqws!5cf8jcwfoh7$-+*31lbeqts'
+SECRET_KEY = str(os.getenv('SECRET_KEY'))
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = []
 
@@ -181,3 +181,14 @@ APPEND_SLASH = True
 INTERNAL_IPS = [
     '127.0.0.1',
 ]
+
+from dotenv import load_dotenv
+load_dotenv()
+
+
+try:
+    from .local_settings import *
+except ImportError:
+    print("Looks like no local file. You must be on production.")
+    DEBUG = False
+    ALLOWED_HOSTS = [] 

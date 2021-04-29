@@ -1,4 +1,11 @@
-# Student Management System
+
+# Student Management Sys
+
+# This repo is a close duplicate of "Student Management System" (https://www.youtube.com/watch?v=sl43oS-36Ms). 
+
+The modifications relate to upgraded software packages.
+
+
 
 ## This is a simple API for:
 
